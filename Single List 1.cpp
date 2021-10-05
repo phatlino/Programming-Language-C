@@ -83,3 +83,46 @@ class SList{
   
   void reverse();                       //Đảo danh sách             O(n)
 }
+
+template <class data>                   //Khởi tạo danh sách rỗng
+SList<data>::SList()
+{
+  head = tail = NULL;
+  len = 0;
+}
+
+/*NÂNG CAO : thêm thư viện stdarg.h
+Tiện lợi cho việc thử nghiệm : khai báo một danh sách có sẵn các nút
+Ví dụ : SList<int> list(5, 9, 8, 7, 6, 5);
+- Lúc này danh sách liên kết gồm 5 nút : 9 8 7 6 5
+
+Hãy sử dụng hàm này đúng mục đích để tránh các lỗi
+Ví dụ sau đây là sử dụng sai mục đích của hàm : SList<int> list(5, 1, 2, 3, 4);
+Khai báo số phần tử là 5 nhưng chỉ bỏ vào 4 phần tử, sẽ gây ra giá trị rác
+
+Trường hợp khai báo dư số phần tử sẽ không gây ra lỗi : SList<int> list(3, 1, 2, 3, 4, 5);
+*/
+
+#include<stdarg.h>
+template <class data>                   //Khởi tạo danh sách có sẵn các nút
+SList<data>::SList(int length, ...)
+{
+  if(length <= 0)
+  {
+    head = tail = NULL;
+    len = 0;
+    return;
+  }
+  
+  len = length;           //Gán độ dài của danh sách
+  
+  va_list list;           //Sử dụng biến va_list trong thư viện stdarg.h để di chuyển qua các biến thuộc dấu '...'
+  va_start(list, length); //Trỏ vào biến trước dấu '...'
+  
+  head = tail = new node<data>(va_arg(list, data));     //Tạo nút đầu tiên mang giá trị của biến đầu tiên trong dấu '...'
+  
+  for(int i = 1; i < length; i++, tail = tail->next)
+    tail->next = new node<data>(va_arg(list, data));    //Tạo các node liên tiếp
+  
+  tail->next;             //Đặt điểm dừng cho tail
+}
