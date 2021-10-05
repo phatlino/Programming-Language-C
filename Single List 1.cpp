@@ -4,6 +4,8 @@
 - Cài đặt một số hàm cơ bản về danh sách liên kết đơn : khởi tạo, thêm nút, xóa nút, tìm kiếm nút, ...
 */
 
+#include<iostream>
+
 //Khai báo prototype ở đầu chương trình
 template <class data> class node;        //Lớp nút đơn
 template <class data> class SList;       //Lớp danh sách liên kết đơn
@@ -34,7 +36,7 @@ class node{
     
   //HÀM BỔ TRỢ : có kiểu trả về
   void change(data value);        //Thay đổi lại giá trị của nút
-}
+};
 
 template <class data>             //Khởi tạo nút
 node<data>::node(data value)
@@ -82,7 +84,7 @@ class SList{
   void sort_selection();                //Sắp xếp danh sách : dùng Selection Sort       O(n^2)
   
   void reverse();                       //Đảo danh sách             O(n)
-}
+};
 
 template <class data>                   //Khởi tạo danh sách rỗng
 SList<data>::SList()
@@ -121,8 +123,8 @@ SList<data>::SList(int length, ...)
   
   head = tail = new node<data>(va_arg(list, data));     //Tạo nút đầu tiên mang giá trị của biến đầu tiên trong dấu '...'
   
-  for(int i = 1; i < length; i++, tail = tail->next)
+  for(int i = 1; i < length; i++, tail = tail->next)    //Tạo length - 1 nút còn lại
     tail->next = new node<data>(va_arg(list, data));    //Tạo các node liên tiếp
   
-  tail->next;             //Đặt điểm dừng cho tail
+  tail->next = NULL;             //Đặt điểm dừng cho tail
 }
