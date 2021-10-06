@@ -1,4 +1,5 @@
-Ở đây có các bài về cấu trúc dữ liệu và giải thuật :3
+Ở đây có các bài về cấu trúc dữ liệu và giải thuật :3.
+Các nội dung bài học được trình bày dưới đây. Sau khi đọc xong nhấp vào "Go to file" để tìm bài học
 
 Hiện tại đang có :
 
