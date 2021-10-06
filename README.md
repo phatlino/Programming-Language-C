@@ -4,5 +4,5 @@ Các nội dung bài học được trình bày dưới đây. Sau khi đọc xo
 Hiện tại đang có :
 
 - Single List bài 1 : tạo cấu trúc node, SList và các hàm khởi tạo
-- Single List bài 2 : các hàm thêm nút vào danh sách
-- Single List bài 3 : các hàm xóa nút trong danh sách
+- Single List bài 2 : các hàm thêm một nút vào danh sách
+- Single List bài 3 : các hàm xóa một nút trong danh sách, các hàm tìm kiếm, nút mang giá trị lớn nhất, nhỏ nhất
