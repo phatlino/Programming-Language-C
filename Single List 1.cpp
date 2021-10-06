@@ -62,28 +62,34 @@ class SList{
   //NÂNG CAO
   SList(int length, ...);               //Khởi tạo danh sách có sẵn các nút
   
+  //PHƯƠNG THỨC : được viết ở các bài sau
+  void operator=(SList<data> list);
+  
   //HÀM BỔ TRỢ : được viết ở các bài sau
+  bool isEmpty();                       //Trả về true nếu danh sách rỗng
+  void show();                          //Xuất toàn bộ danh sách để xem
+  void del();                           //Giải phóng toàn bộ danh sách
+  void reverse();                       //Đảo danh sách             O(n)
+  
   void addhead(data element);           //Thêm vào đầu danh sách    O(1)
   void addhead(node<data>* element);    //Thêm vào đầu danh sách    O(1)
   void addtail(data element);           //Thêm vào cuối danh sách   O(1)
   void addtail(node<data>* element);    //Thêm vào cuối danh sách   O(1)
-  void addbet(node<data>* p, data element, bool before = true);            //before = true : thêm vào trước p - before = false : them vào sau p   O(1)
-  void addbet(node<data>* p, node<data>* element, bool before = true);     //before = true : thêm vào trước p - before = false : them vào sau p   O(1)
+  void addbet(node<data>* p, data element, bool before = true);            //before = true : thêm vào trước p - before = false : thêm vào sau p   O(1)
+  void addbet(node<data>* p, node<data>* element, bool before = true);     //before = true : thêm vào trước p - before = false : thêm vào sau p   O(1)
   
   void delhead();                       //Xóa phần tử đầu           O(1)
-  void deltail();                       //Xóa phần tử cuối          O(1)
+  void deltail();                       //Xóa phần tử cuối          O(n)
   void delnode(node<data>* element)     //Xóa nút element           O(1) hoặc O(n)
   
   node<data>* max();                    //Trả về nút lớn nhất - danh sách rỗng thì trả về NULL                                  O(n)
   node<data>* min();                    //Trả về nút nhỏ nhất - danh sách rỗng thì trả về NULL                                  O(n)
   node<data>* find(data element);       //Tìm nút mang giá trị element - danh sách rỗng hoặc không tìm thấy thì trả về NULL     O(n)
   
-  void sort_interchange();              //Sắp xếp danh sách : dùng Interchange Sort     O(n^2)
-  void sort_buble();                    //Sắp xếp danh sách : dùng Buble Sort           O(n^2)
-  void sort_insertion();                //Sắp xếp danh sách : dùng Insertion Sort       O(n^2)
-  void sort_selection();                //Sắp xếp danh sách : dùng Selection Sort       O(n^2)
-  
-  void reverse();                       //Đảo danh sách             O(n)
+  void sort_interchange(bool ascending = true);              //Sắp xếp danh sách : dùng Interchange Sort     O(n^2)
+  void sort_buble(bool ascending = true);                    //Sắp xếp danh sách : dùng Buble Sort           O(n^2)
+  void sort_insertion(bool ascending = true);                //Sắp xếp danh sách : dùng Insertion Sort       O(n^2) hoặc O(n)
+  void sort_selection(bool ascending = true);                //Sắp xếp danh sách : dùng Selection Sort       O(n^2)
 };
 
 template <class data>                   //Khởi tạo danh sách rỗng
