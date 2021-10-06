@@ -68,8 +68,10 @@ class SList{
   //HÀM BỔ TRỢ : được viết ở các bài sau
   bool isEmpty();                       //Trả về true nếu danh sách rỗng
   void show();                          //Xuất toàn bộ danh sách để xem
+  void showrev();                       //Xuất danh sách theo chiều ngược
   void del();                           //Giải phóng toàn bộ danh sách
   void reverse();                       //Đảo danh sách             O(n)
+  bool isSymmetry();                    //Trả về true nếu danh sách đối xứng  O(n)
   
   void addhead(data element);           //Thêm vào đầu danh sách    O(1)
   void addhead(node<data>* element);    //Thêm vào đầu danh sách    O(1)
