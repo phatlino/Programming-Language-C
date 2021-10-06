@@ -67,8 +67,8 @@ class SList{
   void addhead(node<data>* element);    //Thêm vào đầu danh sách    O(1)
   void addtail(data element);           //Thêm vào cuối danh sách   O(1)
   void addtail(node<data>* element);    //Thêm vào cuối danh sách   O(1)
-  void addbet(node<data>* p, data element, bool before = true);            //before = true : thêm vào trước p - before = false : them vào sau p   O(1) hoặc O(n)
-  void addbet(node<data>* p, node<data>* element, bool before = true);     //before = true : thêm vào trước p - before = false : them vào sau p   O(1) hoặc O(n)
+  void addbet(node<data>* p, data element, bool before = true);            //before = true : thêm vào trước p - before = false : them vào sau p   O(1)
+  void addbet(node<data>* p, node<data>* element, bool before = true);     //before = true : thêm vào trước p - before = false : them vào sau p   O(1)
   
   void delhead();                       //Xóa phần tử đầu           O(1)
   void deltail();                       //Xóa phần tử cuối          O(1)
