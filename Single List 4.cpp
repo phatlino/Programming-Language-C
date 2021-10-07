@@ -14,7 +14,7 @@ bool SList<data>::isEmpty()
 }
 
 template <class data>
-void SList<data>show()
+void SList<data>::show()
 {
   for(node<data>* i = head; i; i = i->next)
     std::cout << i->info << " ";
@@ -46,11 +46,88 @@ void SList<data>::showrev()
   std::cout << '\n';
 }
 
+//Hàm giải phóng toàn bộ danh sách
 
+template <class data>
+void SList<data>::del()
+{
+  if(head == NULL)
+    return;
+  
+  for(node<data>* i = head; i; i = head)
+  {
+    head = head->next;
+    delete i;
+  }
+  tail = NULL;
+  len = 0;
+}
 
+//Ta có thể dùng đệ quy để giải phóng các nút theo chiều ngược, hàm dưới đây sẽ được đóng lại bằng các dấu //
 
+/*Cần sử dụng một hàm phụ, hàm này không thuộc lớp SList
+template <class data>
+void SList_del(node<data>* head)      //Nhận vào một nút head
+{
+  if(head == NULL)
+    return;
+    
+  SList_del(head->next);        //Đệ quy
+  delete head;                  //Giải phóng
+}
 
+template <class data>
+void SList<data>::del()
+{
+  SList_del(head);      //Gọi hàm giải phóng danh sách
+  head = tail = NULL;
+  len = 0;
+}
+*/
 
+//Hàm đảo danh sách
 
+template <class data>
+void SList<data>::reverse()
+{
+  if(len <= 1)
+    return;
+  
+  node<data>* p = tail = head;
+  head = head->next;
+  tail->next = NULL;
+  
+  for(node<data>* i = head; i; i = head)
+  {
+    head = head->next;
+    i->next = p;
+    p = i;
+  }
+  
+  head = p;
+}
 
+/*Tạo một SList cùng kiểu rỗng
+Ta đẩy lần lượt giá trị của từng nút theo chiều xuôi vào đầu danh sách mới này
+Sau đó duyệt qua từng nút của hai danh sách và so sánh chúng
+*/
 
+//Hàm kiểm tra danh sách đối xứng
+
+template <class data>
+bool SList<data>::isSymmetry()
+{
+  SList<data> list;
+  for(node<data>* i = head; i; i = i->next)     //Đẩy từng giá trị vào đầu danh sách mới
+    list.addhead(i->info);
+  
+  for(node<data>* i = head, * j = list.head; i; i = i->next, j = j->next)
+    if(i->info != j->info)
+    {
+      list.del();       //Giải phóng danh sách mới
+      return false;     //Danh sách không đối xứng
+    }
+  
+  list.del();           //Giải phóng danh sách mới
+  return true;          //Danh sách đối xứng
+}
