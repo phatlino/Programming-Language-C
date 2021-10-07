@@ -7,5 +7,7 @@ Hiện tại đang có :
 - Single List bài 1 : tạo cấu trúc node, SList và các hàm khởi tạo
 - Single List bài 2 : các hàm thêm một nút vào danh sách
 - Single List bài 3 : các hàm xóa một nút trong danh sách, các hàm tìm kiếm, nút mang giá trị lớn nhất, nhỏ nhất
-- Single List bài 4 : các hàm isEmpty, hàm giải phóng toàn bộ danh sách, xuất danh sách, đảo danh sách, kiểm tra đối xứng
+- Single List bài 4 : các hàm isEmpty, hàm giải phóng toàn bộ danh sách, xuất danh sách, đảo danh sách, kiểm tra đối xứng, phương thức
 - Single List bài 5 : các hàm sắp xếp sử dụng các thuật toán Interchange, Buble, Insertion, Selection
+
+- Double List bài 1 : tạo cấu trúc node, DList và các hàm khởi tạo
