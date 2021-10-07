@@ -136,3 +136,47 @@ SList<data>::SList(int length, ...)
   
   tail->next = NULL;             //Đặt điểm dừng cho tail
 }
+
+
+/*Ta cũng có thể dùng một hàm phụ tạo ra n nút trước, sau đó mới duyệt và gán giá trị cho chúng
+Các hàm sau đây sẽ được đóng dấu //
+*/
+
+/*Hàm trả về nút đầu của n nút liên kết nhau, hàm này không thuộc lớp SList
+
+template <class data>
+node<data>* new_nNode(int n)
+{
+  if(n <= 0)
+    return NULL;
+    
+  node<data>* p = new node<data>;
+	p->next = new_nNode<data>(n - 1);
+
+	return p;
+}
+
+template <class data>                   //Khởi tạo danh sách có sẵn các nút
+SList<data>::SList(int length, ...)
+{
+  if(length <= 0)
+  {
+    head = tail = NULL;
+    len = 0;
+    return;
+  }
+  
+  len = length;           //Gán độ dài của danh sách
+  
+  va_list list;           //Sử dụng biến va_list trong thư viện stdarg.h để di chuyển qua các biến thuộc dấu '...'
+  va_start(list, length); //Trỏ vào biến trước dấu '...'
+  
+  head = tail = new_nNode<data>(length);      //Tạo length nút
+  for(;; tail = tail->next)
+  {
+    tail->info = va_arg(list, data);          //Gán giá trị cho từng nút
+    if(tail->next == NULL)
+      break;
+  }
+}
+*/
