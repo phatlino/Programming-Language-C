@@ -1,10 +1,11 @@
-/*Bài này bao gồm các hàm
+/*Bài này bao gồm các hàm :
 - Kiểm tra danh sách rỗng
 - Xuât danh sách
 - Xuất danh sách theo chiều ngược
 - Giải phóng toàn bộ danh sách
 - Đảo danh sách
 - Kiểm tra danh sách có đối xứng
+- Phương thức : gán hai SList
 */
 
 template <class data>
@@ -130,4 +131,27 @@ bool SList<data>::isSymmetry()
   
   list.del();           //Giải phóng danh sách mới
   return true;          //Danh sách đối xứng
+}
+
+/*Khi gán hai SList : list2 = list;
+Lúc này chương trình sẽ thực thi hai dòng :
+list2.head = list1.head;
+list2.tail = list1.tail;
+
+Như vậy list2 đang dùng chung các nút với list1, nếu thay đổi giá trị các nút trong list2 thì các nút trong list1 sẽ thay đổi theo
+Vì thế ta sẽ viết hàm ( phương thức ) để list2 và list1 không dùng chung các nút
+
+Cách gọi : list2 = list1;   //Gán như bình thường
+*/
+
+//Phương thức
+
+template <class data>
+void operator=(SList<data> list)
+{
+  if(head != NULL)
+    del();        //Giải phóng danh sách cũ
+  
+  for(node<data>* i = list.head; i; i = i->next)
+    addtail(i->info);
 }
