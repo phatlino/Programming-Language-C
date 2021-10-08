@@ -8,12 +8,14 @@
 - Phương thức : gán hai SList
 */
 
+//Kiểm tra danh sách rỗng
 template <class data>
 bool SList<data>::isEmpty()
 {
   return head == NULL;
 }
 
+//Xuất danh sách
 template <class data>
 void SList<data>::show()
 {
@@ -39,6 +41,7 @@ void SList_showrev(node<data>* head)      //Nhận vào một con trỏ head
 }
 
 //Sử dụng hàm trên để in ngược danh sách
+//Xuất ngược danh sách
 template <class data>
 void SList<data>::showrev()
 {
@@ -47,8 +50,7 @@ void SList<data>::showrev()
   std::cout << '\n';
 }
 
-//Hàm giải phóng toàn bộ danh sách
-
+//Giải phóng toàn bộ danh sách
 template <class data>
 void SList<data>::del()
 {
@@ -77,6 +79,7 @@ void SList_del(node<data>* head)      //Nhận vào một nút head
   delete head;                  //Giải phóng
 }
 
+//Hàm giải phóng toàn bộ danh sách
 template <class data>
 void SList<data>::del()
 {
@@ -86,8 +89,7 @@ void SList<data>::del()
 }
 */
 
-//Hàm đảo danh sách
-
+//Đảo danh sách
 template <class data>
 void SList<data>::reverse()
 {
@@ -113,8 +115,7 @@ Ta đẩy lần lượt giá trị của từng nút theo chiều xuôi vào đ�
 Sau đó duyệt qua từng nút của hai danh sách và so sánh chúng
 */
 
-//Hàm kiểm tra danh sách đối xứng
-
+//Kiểm tra danh sách đối xứng
 template <class data>
 bool SList<data>::isSymmetry()
 {
@@ -144,8 +145,7 @@ Vì thế ta sẽ viết hàm ( phương thức ) để list2 và list1 không d
 Cách gọi : list2 = list1;   //Gán như bình thường
 */
 
-//Phương thức
-
+//Phương thức : gán bằng hai SList
 template <class data>
 void SList<data>::operator=(SList<data> list)
 {
