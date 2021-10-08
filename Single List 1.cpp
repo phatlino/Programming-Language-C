@@ -94,7 +94,8 @@ class SList{
   void sort_selection(bool ascending = true);                //Sắp xếp danh sách : dùng Selection Sort       O(n^2)
 };
 
-template <class data>                   //Khởi tạo danh sách rỗng
+//Khởi tạo danh sách rỗng
+template <class data>
 SList<data>::SList()
 {
   head = tail = NULL;
@@ -114,7 +115,8 @@ Trường hợp khai báo dư số phần tử sẽ không gây ra lỗi : SList
 */
 
 #include<stdarg.h>
-template <class data>                   //Khởi tạo danh sách có sẵn các nút
+//Khởi tạo danh sách có sẵn các nút
+template <class data>
 SList<data>::SList(int length, ...)
 {
   if(length <= 0)
@@ -156,7 +158,8 @@ node<data>* new_nNode(int n)
 	return p;
 }
 
-template <class data>                   //Khởi tạo danh sách có sẵn các nút
+//Khởi tạo danh sách có sẵn các nút
+template <class data>
 SList<data>::SList(int length, ...)
 {
   if(length <= 0)
