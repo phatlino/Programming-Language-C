@@ -43,7 +43,7 @@ void SList<data>::addtail(node<data>* element)   //element->next chưa chắc đ
     return;
   
   tail->next = element;
-  tail = elelemt;
+  tail = element;
   element->next = NULL;
   len++;
 }
