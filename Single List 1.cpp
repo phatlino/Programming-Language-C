@@ -82,7 +82,7 @@ class SList{
   
   void delhead();                       //Xóa phần tử đầu           O(1)
   void deltail();                       //Xóa phần tử cuối          O(n)
-  void delnode(node<data>* element)     //Xóa nút element           O(1) hoặc O(n)
+  void delnode(node<data>* element);     //Xóa nút element           O(1) hoặc O(n)
   
   node<data>* max();                    //Trả về nút lớn nhất - danh sách rỗng thì trả về NULL                                  O(n)
   node<data>* min();                    //Trả về nút nhỏ nhất - danh sách rỗng thì trả về NULL                                  O(n)
