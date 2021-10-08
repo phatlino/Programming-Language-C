@@ -28,11 +28,7 @@ void SList<data>::addhead(node<data>* element)
   if(element == NULL)
     return;
   
-  if(head == NULL)
-  {
-    head = tail = element;
-    element->next = NULL;
-  }else{
+d
     element->next = head;
     head = element;
   }
