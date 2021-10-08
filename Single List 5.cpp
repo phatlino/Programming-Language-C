@@ -9,10 +9,9 @@
 Nếu là sắp xếp giảm dần, phải thêm tham số false :  list.sort_interchange(false);
 */
 
-//Interchange Sort
-
+//Sắp xếp danh sách dùng Interchange Sort
 template <class data>
-void SList<data>::sort_interchange(bool ascending = true)
+void SList<data>::sort_interchange(bool ascending)
 {
   if(len <= 1)
     return;
@@ -31,50 +30,48 @@ void SList<data>::sort_interchange(bool ascending = true)
   }
 }
 
-//Buble Sort
-
+//Sắp xếp danh sách dùng Buble Sort
 template <class data>
-void SList<data>::sort_buble(bool ascending = true)
+void SList<data>::sort_buble(bool ascending)
 {
   if(len <= 1)
     return;
   
   node<data>* p = NULL;
   
-  if(ascending)   //Sắp xếp danh sách tăng
+  if (ascending)   //Sắp xếp danh sách tăng
   {
-    for(node<data>* i = head; i->next != p;)
-      for(node<data>* j = i;; j = j->next)
+    for (node<data>* i = head; i->next != p;)
+      for (node<data>* j = i;; j = j->next)
       {
-        if(j->info > j->next->info)
-          swap(j->info, j->next->info);
-        
-        if(j->next == p)
+        if (j->next == p)
         {
           p = j;
           break;
         }
+
+        if (j->info > j->next->info)
+          swap(j->info, j->next->info);
       }
   }else{
-    for(node<data>* i = head; i->next != p;)
-      for(node<data>* j = i;; j = j->next)
+    for (node<data>* i = head; i->next != p;)
+      for (node<data>* j = i;; j = j->next)
       {
-        if(j->info < j->next->info)
-          swap(j->info, j->next->info);
-        
-        if(j->next == p)
+        if (j->next == p)
         {
           p = j;
           break;
         }
+
+        if (j->info < j->next->info)
+          swap(j->info, j->next->info);
       }
   }
 }
 
-//Selection Sort
-
+//Sắp xếp danh sách dùng Selection Sort
 template <class data>
-void sort_selection(bool ascending = true)
+void SList<data>::sort_selection(bool ascending)
 {
   if(len <= 1)
     return;
@@ -87,7 +84,7 @@ void sort_selection(bool ascending = true)
     {
       p = i;
       for(node<data>* j = i->next; j; j = j->next)
-        if(p->info < j->info)
+        if(p->info > j->info)
           p = j;
       
       if(p != i)
@@ -98,7 +95,7 @@ void sort_selection(bool ascending = true)
     {
       p = i;
       for(node<data>* j = i->next; j; j = j->next)
-        if(p->info > j->info)
+        if(p->info < j->info)
           p = j;
       
       if(p != i)
@@ -135,10 +132,9 @@ void SList_insertion(node<data>* head, bool ascending)    //Nhận vào một n�
   }
 }
 
-//Insertion Sort
-
+//Sắp xếp danh sách dùng Insertion Sort
 template <class data>
-void SList<data>::sort_insertion(bool ascending = true)
+void SList<data>::sort_insertion(bool ascending)
 {
   if(len <= 1)
     return;
