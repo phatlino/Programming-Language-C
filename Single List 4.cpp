@@ -147,7 +147,7 @@ Cách gọi : list2 = list1;   //Gán như bình thường
 //Phương thức
 
 template <class data>
-void operator=(SList<data> list)
+void SList<data>::operator=(SList<data> list)
 {
   if(head != NULL)
     del();        //Giải phóng danh sách cũ
