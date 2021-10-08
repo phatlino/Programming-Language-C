@@ -9,9 +9,15 @@
 template <class data>
 void SList<data>::addhead(data element)
 {
-  node<data>* p = new node<data>(element);
-  p->next = head;
-  head = p;
+  node<data>* p = new node<data>(element);      //p->next đã bằng NULL
+  
+  if(head == NULL)
+    head = tail = p;
+  else{
+    p->next = head;
+    head = p;
+  }
+  
   len++;
 }
 
@@ -22,8 +28,15 @@ void SList<data>::addhead(node<data>* element)
   if(element == NULL)
     return;
   
-  element->next = head;
-  head = element;
+  if(head == NULL)
+  {
+    head = tail = element;
+    element->next = NULL;
+  }else{
+    element->next = head;
+    head = element;
+  }
+  
   len++;
 }
 
@@ -31,8 +44,13 @@ template <class data>
 void SList<data>::addtail(data element)
 {
   node<data>* p = new node<data>(element);      //p->next đã bằng NULL
-  tail->next = p;
-  tail = p;
+  
+  if(head == NULL)
+    head = tail = p;
+  else{
+    tail->next = p;
+    tail = p;
+  }
   len++;
 }
 
@@ -42,8 +60,13 @@ void SList<data>::addtail(node<data>* element)   //element->next chưa chắc đ
   if(element == NULL)
     return;
   
-  tail->next = element;
-  tail = element;
+  if(head == NULL)
+    head = tail = element;
+  else{
+    tail->next = element;
+    tail = element;
+  }
+  
   element->next = NULL;
   len++;
 }
