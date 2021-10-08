@@ -9,6 +9,7 @@
 
 //Lưu ý : hãy chắc chắn rằng bạn không làm sai giá trị của biến len so với độ dài của danh sách, nếu không sẽ dễ gây ra lỗi
 
+//Xóa nút đầu
 template <class data>
 void SList<data>::delhead()
 {
@@ -29,6 +30,7 @@ void SList<data>::delhead()
   len--;
 }
 
+//Xóa nút cuối
 template <class data>
 void SList<data>::deltail()
 {
@@ -66,6 +68,7 @@ TRƯỜNG HỢP nút element là nút cuối : độ phức tạp O(n)
 => Độ phức tạp của việc xóa một nút element là O(1) hoặc O(n)
 */
 
+//Xóa nút được chỉ định
 template <class data>
 void SList<data>::delnode(node<data>* element)
 {
@@ -106,7 +109,6 @@ void SList<data>::delnode(node<data>* element)
 }
 
 //Tìm nút mang giá trị lớn nhất
-
 template <class data>
 node<data>* SList<data>::max()
 {
@@ -122,7 +124,6 @@ node<data>* SList<data>::max()
 }
 
 //Tìm nút mang giá trị nhỏ nhất
-
 template <class data>
 node<data>* SList<data>::min()
 {
@@ -138,7 +139,6 @@ node<data>* SList<data>::min()
 }
 
 //Tìm nút mang giá trị element được chỉ định
-
 template <class data>
 node<data>* SList<data>::find(data element)
 {
