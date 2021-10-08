@@ -5,7 +5,7 @@
 
 //Tên hàm trùng nhau nhưng khi sử dụng bạn đưa vào giá trị hay một nút thì nó sẽ hiểu
 
-//Hàm thêm vào đầu danh sách : tham số là một giá trị
+//Thêm một nút vào đầu danh sách : tham số là một giá trị
 template <class data>
 void SList<data>::addhead(data element)
 {
@@ -21,7 +21,7 @@ void SList<data>::addhead(data element)
   len++;
 }
 
-//Hàm thêm vào đầu danh sách : tham số là nút có sẵn
+//Thêm một nút vào đầu danh sách : tham số là nút có sẵn
 template <class data>
 void SList<data>::addhead(node<data>* element)
 {
@@ -40,6 +40,7 @@ void SList<data>::addhead(node<data>* element)
   len++;
 }
 
+//Thêm một nút vào cuối danh sách : tham số là một giá trị
 template <class data>
 void SList<data>::addtail(data element)
 {
@@ -54,6 +55,7 @@ void SList<data>::addtail(data element)
   len++;
 }
 
+//Thêm một nút vào cuối danh sách : tham số là một nút có sẵn
 template <class data>
 void SList<data>::addtail(node<data>* element)   //element->next chưa chắc đã bằng NULL
 {
@@ -110,6 +112,7 @@ GIẢI THUẬT :
   
 Vì vậy hàm addbet luôn là thêm vào sau nút p, chỉ hoán vị khi before = true*/
 
+//Thêm một nút mang giá trị element vào kế nút p
 template <class data>
 void SList<data>::addbet(node<data>* p, data element, bool before)
 {
@@ -139,6 +142,7 @@ void SList<data>::addbet(node<data>* p, data element, bool before)
   len++;
 }
 
+//Thêm một nút element vào kế nút p
 template <class data>
 void SList<data>::addbet(node<data>* p, node<data>* element, bool before)
 {
